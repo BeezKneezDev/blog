@@ -1,10 +1,20 @@
 import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Home from './components/home/Home'
+import Demo from './components/demo/Demo'
+import HomeHeader from './components/home/HomeHeader';
+import DemoHeader from './components/demo/DemoHeader';
 
 function App() {
+  const auth = false;
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+      <>
+      {auth ? <HomeHeader /> : <DemoHeader />}
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/demo' element={<Demo />} />
+      </Routes>
+      </>
   )
 }
 
